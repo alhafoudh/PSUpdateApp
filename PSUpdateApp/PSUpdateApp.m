@@ -108,7 +108,7 @@ CWL_SYNTHESIZE_SINGLETON_FOR_CLASS(PSUpdateApp)
         [self setUpdatePageUrl:[[[dictionary objectForKey:@"results"] objectAtIndex:0] objectForKey:@"trackViewUrl"]];
         
         if ([[[dictionary objectForKey:@"results"] objectAtIndex:0] objectForKey:@"type"]) {
-            [self setStrategy: [[[[dictionary objectForKey:@"results"] objectAtIndex:0] objectForKey:@"type"] isEqualToString:@"mandatory"] ? ForceStrategy : DefaultStrategy];
+            [self setStrategy: [[[[dictionary objectForKey:@"results"] objectAtIndex:0] objectForKey:@"type"] isEqualToString:@"mandatory"] ? ForceStrategy : self.strategy];
         }
         
         return [kCurrentAppVersion compare:_newVersion options:NSNumericSearch] == NSOrderedAscending;
